@@ -37,6 +37,7 @@ repos:
     rev: 24.3.0
     hooks:
     -   id: black
+        exclude: ^docs/
         args:
           - --line-length=88
           - --skip-string-normalization
@@ -53,5 +54,6 @@ repos:
     rev: 6.3.0
     hooks:
     -   id: pydocstyle
+        exclude: ^docs/
         args:
           - --ignore-decorators=property

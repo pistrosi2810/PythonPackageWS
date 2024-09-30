@@ -1,77 +1,79 @@
 """Module for creating random numbers."""
 
-SEED: int = 10
 
+class RandomGenerator:
+    """A simple class for generating random numbers and letters."""
 
-def random_number(seed: int = -1) -> int:
-    """
-    Generate one random integer number from 0 to 99.
+    def __init__(self):
+        """Seed is initialized with 10."""
+        self.SEED: int = 10
 
-    Keyword arguments:
-    seed -- Set a seed for your random number (optional)
-    """
-    if seed > 0:
-        SEED = seed
+    def random_number(self, seed: int = -1) -> int:
+        """
+        Generate one random integer number from 0 to 99.
 
-    rand = SEED * 384 + 25 % 100
+        Keyword arguments:
+        seed -- Set a seed for your random number (optional)
+        """
+        if seed > 0:
+            self.SEED = seed
 
-    return rand
+        rand = (self.SEED * 384 + 25) % 100
 
+        return rand
 
-def random_numbers(n: int, seed: int = -1) -> list[int]:
-    """
-    Generate a list of random integer numbers from 0 to 99.
+    def random_numbers(self, n: int, seed: int = -1) -> list[int]:
+        """
+        Generate a list of random integer numbers from 0 to 99.
 
-    Keyword arguments:
-    n -- number of random numbers in the list
-    seed -- Set a seed for your random number (optional)
-    """
-    if seed > 0:
-        SEED = seed
+        Keyword arguments:
+        n -- number of random numbers in the list
+        seed -- Set a seed for your random number (optional)
+        """
+        if seed > 0:
+            self.SEED = seed
 
-    rand_list = []
+        rand_list = []
 
-    for i in range(n):
-        rand = SEED * 384 + 25 % 100
-        rand_list.append(rand)
+        for i in range(n):
+            rand = (self.SEED * 384 + 25) % 100
+            rand_list.append(rand)
 
-    return rand_list
+        return rand_list
 
+    def random_letter(self, seed: int = -1) -> str:
+        """
+        Generate one random letter from a to z.
 
-def random_letter(seed: int = -1) -> str:
-    """
-    Generate one random letter from a to z.
+        Keyword arguments:
+        seed -- Set a seed for your random letter (optional)
+        """
+        if seed > 0:
+            self.SEED = seed
 
-    Keyword arguments:
-    seed -- Set a seed for your random letter (optional)
-    """
-    if seed > 0:
-        SEED = seed
+        rand = (self.SEED * 384 + 25) % 26
 
-    rand = SEED * 384 + 25 % 26
+        rand_letter = chr(97 + rand)
 
-    rand_letter = chr(97 + rand)
+        return rand_letter
 
-    return rand_letter
+    def random_word(self, length: int, seed: int = -1) -> str:
+        """
+        Generate a list of random letters.
 
+        Keyword arguments:
+        length -- length of the random word
+        seed -- Set a seed for your random word (optional)
+        """
+        if seed > 0:
+            self.SEED = seed
 
-def random_word(length: int, seed: int = -1) -> str:
-    """
-    Generate a list of random letters.
+        rand_list = []
 
-    Keyword arguments:
-    length -- length of the random word
-    seed -- Set a seed for your random word (optional)
-    """
-    if seed > 0:
-        SEED = seed
+        for i in range(length):
+            rand = (self.SEED * 384 + 25) % 26
+            rand_list.append(rand)
 
-    rand_list = []
+        rand_word = ''.join(chr(97 + i) for i in rand_list)
 
-    for i in range(length):
-        rand = SEED * 384 + 25 % 26
-        rand_list.append(rand)
-
-    rand_word = ''.join(chr(96 + i) for i in rand_list)
-
-    return rand_word
+        return rand_word
