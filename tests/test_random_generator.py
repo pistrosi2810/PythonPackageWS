@@ -1,5 +1,12 @@
 import unittest
-from src.random_generator import random_number, random_numbers, random_letter, random_word
+
+from src.random_generator import (
+    random_letter,
+    random_number,
+    random_numbers,
+    random_word,
+)
+
 
 class TestRandomGenerator(unittest.TestCase):
 
@@ -35,7 +42,6 @@ class TestRandomGenerator(unittest.TestCase):
         for i in range(100):
             rand_letter = random_letter(seed=i)
             self.assertIn(rand_letter, letters)
-
 
     def test_random_word(self):
 
