@@ -6,9 +6,7 @@
 PythonPackageWS documentation
 =============================
 
-Add your content using ``reStructuredText`` syntax. See the
-`reStructuredText <https://www.sphinx-doc.org/en/master/usage/restructuredtext/index.html>`_
-documentation for details.
+Simple PythonPackage created in Reproducability Workshop. Generator for generating random numbers, letters and words.
 
 
 .. toctree::
